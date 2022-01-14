@@ -18,7 +18,8 @@ const app = express();
 var db;
 
 //--------CONEXIÓN A LA BASE DE DATOS (las rutas de prueba están al final)
-MongoClient.connect(//-------los tres enlaces son pruebas de rutas para ver cuál conecta con la base de datos sin dar error
+MongoClient.connect(
+  //-------los tres enlaces son pruebas de rutas para ver cuál conecta con la base de datos sin dar error
   /* "mongodb+srv://cluster0.c15y7.mongodb.net/yoiYvibLDIlYsrYn", */
   /* "mongodb+srv://OCuenca:yoiYvibLDIlYsrYn@cluster0.75jyv.mongodb.net/cluster0?retryWrites=true&w=majority", */
   "mongodb+srv://OCuenca:yoiYvibLDIlYsrYn@cluster0.c15y7.mongodb.net/passwordDatabase?retryWrites=true&w=majority", // ¡POR FIN! jajaj
@@ -96,6 +97,8 @@ app.post(
   "/signup",
   /* cifrado, */ function (req, res) {
     //ruta para registrar usuarios
+    let db = req.app.locals.db;
+
     let email = req.body.email;
     let password = req.body.password;
 
@@ -126,11 +129,23 @@ app.get("/api/fail", (req, res) => {
   res.send("usuario o contraseña incorrecto");
 });
 
+app.get("/users", (req, res) => {
+  //ruta para ver la lista de usuarios registrados
+  let db = req.app.locals.db;
 
-
+  db.collection("usuarios")
+    .find()
+    .toArray((err, data) => {
+      if (err !== undefined) {
+        res.send(err);
+      } else {
+        res.send(data);
+      }
+    });
+});
 
 //---------------ESTAS DOS RUTAS SON DE PRUEBA PARA VER SI FUNCIONA EL CÓDIGO PARA CONECTAR CON LA BASE DE DATOS DE MONGODB
-app.get("/usuarios", (req, res) => {
+app.get("/prueba/ver-usuarios", (req, res) => {
   let db = req.app.locals.db;
 
   db.collection("prueba")
@@ -144,11 +159,12 @@ app.get("/usuarios", (req, res) => {
     });
 });
 
-app.post("/nuevo", (req, res) => {
+app.post("/prueba/nuevo-usuario", (req, res) => {
   let db = req.app.locals.db;
-  let nombre = "prueba";
+  /* let nuevoUsuario = "prueba"; */ //---si queréis probar cómo funciona, usad esta línea
+  let nuevoUsuario = req.body;
 
-  db.collection("prueba").insertOne({ nombre }, (err, info) => {
+  db.collection("prueba").insertOne({ nuevoUsuario }, (err, info) => {
     if (err !== undefined) {
       res.send(err);
     } else {
