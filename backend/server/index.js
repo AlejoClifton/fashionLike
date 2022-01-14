@@ -2,6 +2,7 @@
 // cd backend
 // npm init -y
 // npm i express express-session mongodb passport passport-local bcrypt
+// para encender el servidor, abrir la terminal --> cd backend --> cd server --> node index.js
 
 console.log("servidor ENCENDIDO"); //simplemente para que se muestre en la terminal cuando se ha encendido el servidor
 
@@ -12,11 +13,11 @@ const passport = require("passport"); // mantener la sesión mientras se mueve p
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt"); //encriptar las contraseñas
 
-const cifrado = require("./cifrado"); //usamos cifrado.js para encriptar las contraseñas (todavía sin usar)
+const cifrado = require("../rutas/cifrado"); //usamos cifrado.js para encriptar las contraseñas (todavía sin usar)
 
 const app = express();
 
-const posts = require("./rutasPosts");
+const posts = require("../rutas/rutasPosts");
 app.use("/post", posts);
 
 var db;
@@ -100,6 +101,7 @@ app.use(express.urlencoded({ extended: false }));
 app.post(
   "/signup",
   /* cifrado, */ function (req, res) {
+    // CIFRADO --> descomentar cuando esté terminado
     //ruta para registrar usuarios
     let db = req.app.locals.db;
 
