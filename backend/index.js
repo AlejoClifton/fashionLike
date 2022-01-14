@@ -1,8 +1,9 @@
 // COMANDOS EN LA TERMINAL
+// cd backend
 // npm init -y
 // npm i express express-session mongodb passport passport-local bcrypt
 
-console.log("servidor ENCENDIDO"); //simplemente para que se muestre en la consola cuando se ha encendido el servidor
+console.log("servidor ENCENDIDO"); //simplemente para que se muestre en la terminal cuando se ha encendido el servidor
 
 const express = require("express"); //utilizar el paquete express
 const session = require("express-session"); //iniciar la sesión
@@ -11,9 +12,12 @@ const passport = require("passport"); // mantener la sesión mientras se mueve p
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt"); //encriptar las contraseñas
 
-const cifrado = require("./cifrado"); //usamos cifrado.js para encriptar las contraseñas
+const cifrado = require("./cifrado"); //usamos cifrado.js para encriptar las contraseñas (todavía sin usar)
 
 const app = express();
+
+const posts = require("./rutasPosts");
+app.use("/post", posts);
 
 var db;
 
