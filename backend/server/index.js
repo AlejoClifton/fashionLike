@@ -11,14 +11,17 @@ const session = require("express-session"); //iniciar la sesión
 const MongoClient = require("mongodb").MongoClient; //conectar con la base de datos
 const passport = require("passport"); // mantener la sesión mientras se mueve por las páginas (passport + LocalStragety)
 const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcrypt"); //encriptar las contraseñas
 
-const cifrado = require("../rutas/cifrado"); //usamos cifrado.js para encriptar las contraseñas (todavía sin usar)
+/* const bcrypt = require("bcrypt"); //encriptar las contraseñas
+const cifrado = require("../rutas/cifrado"); //usamos cifrado.js para encriptar las contraseñas (todavía sin usar) */
 
 const app = express();
 
 const posts = require("../rutas/rutasPosts");
 app.use("/post", posts);
+
+const registro = require("../rutas/registros");
+app.use("/registro", registro);
 
 var db;
 
