@@ -1,0 +1,23 @@
+{
+    "user":[
+        {
+            "email":"adnerbi.1107@gmail.com",
+            "password":"1107",
+            "rol" :"admin"
+        },
+        {
+            "email":"brendanahomi@gmail.com",
+            "password":"abc",
+            "rol" :"admin"
+        },
+        {
+            "email":"brenda@gmail.com",
+            "password":"123",
+            "rol" :"admin"
+        },{
+            "email":"bnqg@gmail.com",
+            "password":"holamundo",
+            "rol" :"admin"
+        }
+    ]
+}

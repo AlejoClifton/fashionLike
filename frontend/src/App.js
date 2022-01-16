@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import LoginContainer from './components/body/login/LoginContainer';
-import RegisterContainer from './components/body/register/RegisterContainer';
+import LoginContainer from './pages/login/LoginContainer';
+import RegisterContainer from './pages/register/RegisterContainer';
 
 function App() {
     return (

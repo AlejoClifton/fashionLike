@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Login } from './Login';
 
 const LoginContainer = () => {
     return (
         <div>
-            <Link to={'/register'}>
-                <button>Registrarse</button>
-            </Link>
+            <Login />
         </div>
     );
 };

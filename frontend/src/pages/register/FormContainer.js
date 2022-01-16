@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { Input } from '../styleComponents/Inputs';
-import { Button } from '../styleComponents/Buttons';
-import { H1, Form, Error, Div } from '../styleComponents/General';
+import { Input } from '../../components/styleComponents/Inputs';
+import { Button } from '../../components/styleComponents/Buttons';
+import { H1, Form, Error, Div } from '../../components/styleComponents/General';
 
 const FormContainer = () => {
     const [values, setValues] = useState({

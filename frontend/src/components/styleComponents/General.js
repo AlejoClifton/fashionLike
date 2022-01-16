@@ -26,6 +26,5 @@ export const Div = styled.div`
 export const Error = styled.p`
     color: ${colors.red};
     color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 12px;    
 `;
