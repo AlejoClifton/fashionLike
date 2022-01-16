@@ -13,7 +13,7 @@ router.post("/modelo", (req, res) => {
   let contraseña = req.body.contraseña;
   let fechaNacimiento = req.body.fechaNacimiento;
   let pais = req.body.pais;
-  let rol = modelo;
+  let rol = 'modelo';
   let posts = [];
 
   let modelo = {
@@ -49,7 +49,7 @@ router.post("/marca", (req, res) => {
   let contraseña = req.body.contraseña;
   let pais = req.body.pais;
   let identificacionTributaria = req.body.identificacionTributaria;
-  let rol = marca;
+  let rol = 'marca';
 
   let marca = {
     nombre,

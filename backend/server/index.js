@@ -23,6 +23,9 @@ app.use("/post", posts);
 const registro = require("../rutas/registros");
 app.use("/registro", registro);
 
+const verUsuarios = require("../rutas/mostrarUsuarios");
+app.use("/ver", verUsuarios);
+
 var db;
 
 //--------CONEXIÓN A LA BASE DE DATOS (las rutas de prueba están al final)
